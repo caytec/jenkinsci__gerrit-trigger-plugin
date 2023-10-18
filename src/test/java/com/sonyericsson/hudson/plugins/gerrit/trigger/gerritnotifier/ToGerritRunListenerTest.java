@@ -53,6 +53,7 @@ import org.junit.Test;
 import org.mockito.MockedStatic;
 
 import java.io.File;
+import java.nio.file.Files;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -287,7 +288,7 @@ public class ToGerritRunListenerTest {
         String filepath = "error-file*.txt";
         String message = "This is the failure";
 
-        FilePath[] fileList = {new FilePath(File.createTempFile("error-file", ".txt"))};
+        FilePath[] fileList = {new FilePath(Files.createTempFile("error-file", ".txt").toFile())};
 
         PatchsetCreated event = spy(Setup.createPatchsetCreated());
 

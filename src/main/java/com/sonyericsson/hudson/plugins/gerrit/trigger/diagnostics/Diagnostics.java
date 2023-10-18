@@ -49,6 +49,7 @@ import org.kohsuke.stapler.StaplerResponse;
 import edu.umd.cs.findbugs.annotations.CheckForNull;
 import edu.umd.cs.findbugs.annotations.NonNull;
 import java.io.IOException;
+import java.security.SecureRandom;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -219,7 +220,7 @@ public class Diagnostics implements ModelObjectWithChildren, ModelObjectWithCont
     /**
      * Helping {@link #doTriggerDebugEvent(StaplerRequest, StaplerResponse)}.
      */
-    private static final Random RND = new Random();
+    private static final Random RND = new SecureRandom();
 
     /**
      * Checks if the plugin is running in a development environment.

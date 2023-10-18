@@ -36,6 +36,7 @@ import hudson.model.FreeStyleProject;
 import java.io.File;
 import java.io.FileWriter;
 import java.net.URI;
+import java.nio.file.Files;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -109,7 +110,7 @@ public abstract class DuplicatesUtil {
         FreeStyleProject p = rule.createFreeStyleProject(name);
         List<GerritProject> projects = new LinkedList<GerritProject>();
 
-        File file = File.createTempFile("dynamic", "txt");
+        File file = Files.createTempFile("dynamic", "txt").toFile();
         FileWriter fw = new FileWriter(file);
         fw.write("p=project\n");
         fw.write("b" + branchSetting);

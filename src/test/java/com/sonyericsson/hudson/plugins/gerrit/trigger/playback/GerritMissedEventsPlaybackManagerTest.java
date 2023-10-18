@@ -51,6 +51,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -131,7 +132,7 @@ public class GerritMissedEventsPlaybackManagerTest {
 
         File tmpFile = null;
         try {
-            tmpFile = File.createTempFile("gerrit-server-timestamps", ".xml");
+            tmpFile = Files.createTempFile("gerrit-server-timestamps", ".xml").toFile();
         } catch (IOException e) {
             fail("Failed to create Temp File");
         }
